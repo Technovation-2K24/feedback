@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive Contact Form</title>
+
+    <!-- Custom CSS -->
+    <style>
+        :root {
+            --primary-color: #007bff;
+            --secondary-color: #0056b3;
+            --background-color: #f4f4f4;
+            --form-background: #ffffff;
+            --text-color: #333333;
+            --border-color: #cccccc;
+        }
+
+        body {
+            background-color: var(--background-color);
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .contact-form {
+            background-color: var(--form-background);
+            padding: 30px;
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 700px;
+            width: 100%;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            font-size: 1.8em;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            color: var(--text-color);
+            font-size: 1rem;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            color: var(--text-color);
+            font-size: 1rem;
+            margin-bottom: 5px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            background-color: var(--form-background);
+            color: var(--text-color);
+            font-size: 1rem;
+            box-sizing: border-box;
+            margin-bottom: 1rem;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background-color: var(--primary-color);
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background-color: var(--secondary-color);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .contact-form {
+                padding: 20px;
+            }
+
+            .submit-btn {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 1rem;
+            }
+
+            .contact-form {
+                padding: 15px;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            p {
+                font-size: 0.9rem;
+            }
+
+            .submit-btn {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="contact-form">
+        <h2>Feedback Form</h2>
+        <p>Thank you for attending the campus drive. Please share your feedback regarding the event and our students.</p>
+        <form id="contactForm" action="submit_feedback.php" method="POST">
+            <div class="form-group">
+                <label for="contactPerson">Name:</label>
+                <input type="text" id="contactPerson" name="contactPerson" placeholder="Full Name" required>
+            </div>
+            <div class="form-group">
+                <label for="designationContact">Designation:</label>
+                <input type="text" id="designationContact" name="designationContact" placeholder="Designation" required>
+            </div>
+            <div class="form-group">
+                <label for="address">Address:</label>
+                <textarea id="address" name="address" rows="2" placeholder="Company Address" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="visit">Date of Visit:</label>
+                <input type="date" id="visit" name="visit" required>
+            </div>
+            <div class="form-group">
+                <label for="mobile">Mobile Number:</label>
+                <input type="tel" id="mobile" name="mobile" placeholder="Mobile Number" pattern="[0-9]{10}" required>
+            </div>
+            <div class="form-group">
+                <label for="emailContact">Email Address:</label>
+                <input type="email" id="emailContact" name="emailContact" placeholder="Email Address" required>
+            </div>
+            <div class="form-group">
+                <label for="companyWriteup">Brief Company Write-Up (50-75 words):</label>
+                <textarea id="companyWriteup" name="companyWriteup" placeholder="Write about your company" rows="4"
+                    required></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Send Feedback</button>
+        </form>
+    </div>
+
+    <!-- Custom JS -->
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function (event) {
+            alert('Your feedback has been submitted successfully!');
+        });
+    </script>
+
+</body>
+
+</html>
